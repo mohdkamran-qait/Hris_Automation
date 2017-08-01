@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="14347" started-at="2017-07-31T07:16:16Z" finished-at="2017-07-31T07:16:30Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="14347" started-at="2017-07-31T07:16:16Z" finished-at="2017-07-31T07:16:30Z">
+      <class name="com.qait.automation.hris.test.HRISAutomation">
+        <test-method status="PASS" signature="initSession()[pri:0, instance:com.qait.automation.hris.test.HRISAutomation@1e88b3c]" name="initSession" is-config="true" duration-ms="3749" started-at="2017-07-31T12:46:16Z" finished-at="2017-07-31T12:46:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initSession -->
+        <test-method status="PASS" signature="T1_verifyLoginFunctionality()[pri:0, instance:com.qait.automation.hris.test.HRISAutomation@1e88b3c]" name="T1_verifyLoginFunctionality" duration-ms="7111" started-at="2017-07-31T12:46:19Z" finished-at="2017-07-31T12:46:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- T1_verifyLoginFunctionality -->
+        <test-method status="PASS" signature="T2_verifyRecordFetching()[pri:0, instance:com.qait.automation.hris.test.HRISAutomation@1e88b3c]" name="T2_verifyRecordFetching" duration-ms="3470" started-at="2017-07-31T12:46:26Z" finished-at="2017-07-31T12:46:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- T2_verifyRecordFetching -->
+      </class> <!-- com.qait.automation.hris.test.HRISAutomation -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

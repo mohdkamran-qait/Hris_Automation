@@ -1,0 +1,6 @@
+base_url: https://hris.qainfotech.com/login.php
+
+credentials:
+   username: mohdkamran
+   password: password
+landingPageTitle: "QAIT Resource Management Tool"
