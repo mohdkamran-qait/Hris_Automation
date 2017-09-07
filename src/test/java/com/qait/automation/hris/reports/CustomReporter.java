@@ -43,8 +43,10 @@ public class CustomReporter implements IReporter {
 	private String reportTitle = "TestNG Customized Report";
 	private String reportFileName = "customizedreport.html";
 	public ExcelSheetReader sr;
+    
+    
 	
-
+	
 	@Override
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outdir) {
 		try {
@@ -69,10 +71,6 @@ public class CustomReporter implements IReporter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// generateSuiteSummaryReport(suites);
-		// generateMethodSummaryReport(suites);
-		// generateMethodDetailReport(suites);
-		// endHtml(writer);
 		writer.flush();
 		writer.close();
 	}
@@ -112,53 +110,30 @@ public class CustomReporter implements IReporter {
 		return dateFormat.format(date);
 	}
 
-	
-	private void resultDetail(IResultMap tests) {
-		int methodIndex=0;
-		for (ITestResult result : tests.getAllResults()) {
-		ITestNGMethod method = result.getMethod();
-		String cname = method.getTestClass().getName();
-		writer.print("<h2 id=\"m" + methodIndex + "\">" + cname + ":"
-		+ method.getMethodName() + "</h2>");
-		Set<ITestResult> resultSet = tests.getResults(method);
-		}
-		}
-	
-	
-	
-	
 	private void generateReport(List<ISuite> suites) throws IOException {
 		// TODO Auto-generated method stub
 		writer.print("<center><h2>" + "TEST SUMMARY" + "</h1></center>");
-		
-		
-		for(int i=0;i<3;i++){
-		writer.print("<table width='75%' border = '1'>"+
-				"<tr> " + 
-						"<td>" + "Test ID" + "</td>" +
-						"<td>" + "Test Name"+ "</td>" + 
-						"<td>" + "TestDesc"+ "</td>" +
-				"</tr>"+
-						
-				"<tr> " + 
-					"<td>" + "T01" + "</td>" +
-					"<td>" + "T1"+ "</td>" + 
-					"<td>" + "a"+ "</td>" +
-				"</tr>"+
-					
-				"<tr> " + 
-					"<td>" + "T01" + "</td>" +
-					"<td>" + "T1"+ "</td>" + 
-					"<td>" + "a"+ "</td>" +
-				"</tr>"+
-						
-				
-					
-				
-						"</table>");
-		
-		}	
-		
+
+		for (ISuite iSuite : suites) {
+			Map<String, ISuiteResult> results = iSuite.getResults();
+			Set<String> keys = results.keySet();
+			for (String key : keys) {
+				ITestContext context = results.get(key).getTestContext();
+				System.out.println("Suite Name->" + context.getName() + "::Report output Ditectory->"
+						+ context.getOutputDirectory() + "::Suite Name->" + context.getSuite().getName()
+						+ "::Start Date Time for execution->" + context.getStartDate()
+						+ "::End Date Time for execution->" + context.getEndDate());
+				IResultMap resultMap = context.getFailedTests();
+				Collection<ITestNGMethod> failedMethods = resultMap.getAllMethods();
+				System.out.println("--------FAILED TEST CASE---------");
+				for (ITestNGMethod iTestNGMethod : failedMethods) {
+					System.out.println("TESTCASE NAME->" + iTestNGMethod.getMethodName() + "\nDescription->"
+							+ iTestNGMethod.getDescription() + "\nPriority->" + iTestNGMethod.getPriority()
+							+ "\n:Date->" + new Date(iTestNGMethod.getDate()));
+				}
+			}
+		}
+
 	}
 
 	/**
