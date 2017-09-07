@@ -18,11 +18,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.yaml.snakeyaml.Yaml;
 
 import com.qait.automation.hris.automation.TestSessionInitiator;
 import com.qait.automation.hris.utils.LocatorReader;
+
+
 
 public class HRISAutomation {
 	public LocatorReader lr;
@@ -38,7 +41,6 @@ public class HRISAutomation {
 	@Test
 	public void T1_verifyLoginFunctionality() throws IOException, InterruptedException {
 		System.out.println("Executing test to check user is able to login");
-		// ti.myDriver
 		ti.loginPage.verifyLogin();
 	}
 
@@ -46,6 +48,11 @@ public class HRISAutomation {
 	public void T2_verifyRecordFetching() throws IOException {
 		System.out.println("Executing test to check user is able to get data");
 		ti.getRec.getRecords();
+	}
+	
+	@AfterClass
+	public void closeSession() throws IOException {
+		ti.closeSession();
 	}
 
 }

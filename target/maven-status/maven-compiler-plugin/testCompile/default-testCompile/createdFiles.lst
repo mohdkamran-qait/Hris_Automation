@@ -1,0 +1,12 @@
+com\qait\automation\hris\keywords\LoginPageActions.class
+com\qait\automation\hris\utils\Quickstart.class
+com\qait\automation\hris\utils\LocatorReader.class
+com\qait\automation\hris\reports\CustomReporter.class
+com\qait\automation\hris\reports\Listeners.class
+com\qait\automation\hris\automation\TestSessionInitiator.class
+com\qait\automation\hris\keywords\HomePageActions.class
+com\qait\automation\hris\utils\GetLocatorsInfo.class
+com\qait\automation\hris\test\HRISAutomation.class
+com\qait\automation\hris\automation\WebDrivers.class
+com\qait\automation\hris\keywords\GetRecordsActions.class
+com\qait\automation\hris\utils\SpecFileReader.class

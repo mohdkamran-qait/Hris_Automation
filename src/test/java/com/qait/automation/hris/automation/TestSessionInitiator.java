@@ -46,4 +46,8 @@ public class TestSessionInitiator {
 
 	}
 
+	public void closeSession() {
+		myDriver.quit();
+	}
+
 }

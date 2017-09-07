@@ -16,7 +16,7 @@ public class WebDrivers {
 	public Properties properties = null;
 	public InputStream input = null;
 	public String browser;
-	public String driverpath;
+	public final String DRIVERPATH = "src/test/resources/drivers";
 
 	public void load_config_properties_file() throws FileNotFoundException {
 
@@ -27,7 +27,7 @@ public class WebDrivers {
 			input = new FileInputStream(resource_file_path);
 			properties.load(input);
 			browser = properties.getProperty("BrowserName");
-			driverpath = properties.getProperty("driverpath");
+//			driverpath = properties.getProperty("driverpath");
 
 		} catch (Exception e) {
 			System.out.println(e);
@@ -39,7 +39,7 @@ public class WebDrivers {
 	}
 
 	public String getDriverPath() {
-		return driverpath;
+		return DRIVERPATH;
 	}
 
 	public WebDriver getBrowser() {
@@ -57,27 +57,27 @@ public class WebDrivers {
 	}
 
 	private WebDriver getSafariDriver() {
-		System.setProperty("webdriver.safari.driver", driverpath + "/safari.exe");
+		System.setProperty("webdriver.safari.driver", DRIVERPATH + "/safari.exe");
 		return new SafariDriver();
 	}
 
 	private WebDriver getOperaDriver() {
-		System.setProperty("webdriver.firefox.driver", driverpath + "/operadriver.exe");
+		System.setProperty("webdriver.firefox.driver", DRIVERPATH + "/operadriver.exe");
 		return getOperaDriver();
 	}
 
 	private WebDriver getInternetExplorerDriver() {
-		System.setProperty("webdriver.internetexplorer.driver", driverpath + "/IEDriverServer.exe");
+		System.setProperty("webdriver.ie.driver", DRIVERPATH + "/IEDriverServer.exe");
 		return new InternetExplorerDriver();
 	}
 
 	private WebDriver getFirefoxDriver() {
-		System.setProperty("webdriver.firefox.driver", driverpath + "/geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver", DRIVERPATH + "/geckodriver.exe");
 		return new FirefoxDriver();
 	}
 
 	private WebDriver getChromeDriver() {
-		System.setProperty("webdriver.chrome.driver", driverpath + "/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", DRIVERPATH + "/chromedriver.exe");
 		return new ChromeDriver();
 	}
 
